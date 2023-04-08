@@ -61,10 +61,10 @@
                 raise_layer {
                      label = "RAI";
 // -----------------------------------------------------------------------------------------
-// |  º   |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  '  |  =  |  [  |  ]  |  \  |  `   |
-// |   {  |     |     |     |     |     |   |  ¿  |  ?  |  {  |  }  | "|" |   }  |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |  º   |  !  |  @  |  #  |  $  |  %  |  |  ^  |  &  |  *  |  (  |  )  | BKSP |
+// | CTRL |     |     |     |     |     |  |  '  |  =  |  [  |  ]  |  \  |  `   |
+// |   {  |     |     |     |     |     |  |  ¿  |  ?  |  {  |  }  | "|" |   }  |
+//                    | GUI |     | SPC |  | ENT |     | ALT |
                         bindings = <
    &kp ES_MORD &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT       &kp ES_AMPR &kp ES_SLSH  &kp ES_LPRN &kp ES_RPRN &kp ES_EQL &kp BSPC
    &kp LCTRL &trans &trans &trans &trans &trans                  &kp ES_QUOT &kp EQUAL &kp LBKT &kp RBKT &kp BSLH &kp GRAVE
@@ -76,13 +76,13 @@
                 adjust_layer {
                     label = "ADJ";
 // -----------------------------------------------------------------------------------------
-// |      |     |     |  €   |     |     |  |     |     |    |      |     |powerOFF|
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   |     |volDN|volUP|     |     |powerON|
-// | [    |     |     |     |     |     |   |     |     |     |     |     |  ]    |
+// |    BL| (2) | (3) |  €  | (5) | (6) |   | ON  | OFF  |    |     |     |BL    |
+// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   |     |volDN|volUP|     |     |      |
+// | [    |     |     |     |     |     |   |     |     |     |     |     |  ]   |
 //                    |     |     |     |   |     |     |     |
                         bindings = <
-   &bootloader &reset &trans &kp ES_EURO &trans &trans                                    &trans &trans &trans &trans &trans &ext_power EP_OFF
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans &kp C_VOL_DN &kp C_VOL_UP &trans &trans &ext_power EP_ON
+   &bootloader &reset &trans &kp ES_EURO &trans &trans                          &ext_power EP_ON &ext_power EP_OFF &trans &trans &trans   &bootloader
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans &kp C_VOL_DN &kp C_VOL_UP &trans &trans &trans
     &mt LSHIFT RA(LBKT) &trans &trans &trans &trans &trans                               &trans &trans &trans &trans &trans  &mt LSHIFT RA(RBKT)
                               &trans &trans &trans                               &trans &trans &trans 
                         >;
