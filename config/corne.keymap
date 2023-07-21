@@ -10,7 +10,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include "keymap_spanish.h"
 
-// Layer aliases
+// Layer aliases 
 #define DEF 0
 #define LOW 1
 #define RAI 2
