@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/mouse.h>
 #include "keymap_spanish.h"
 
 // Layer aliases test
@@ -48,12 +49,12 @@
 // -----------------------------------------------------------------------------------------
 // |  ESC |  1  |  2  |  3  |  4  |  5  |              |  6  |  7  |  8  |  9  |  0  | BKSP |
 // |  F1  | F2  | F3  | F4  | F5   | &bootloader |     | LFT | DWN |  UP | RGT |     |      |
-// |  <   | F6  | F7  | F8  | F9  | F10 |              | F11 | F12 |     |     |     |   >  |
+// |  <   | F6  | F7  | F8  | F9  | F10 |              | MB1 | MB2 | MB3 |     |     |   >  |
 //                    |    |     | SPC |               | ENT |     | ALT |
                         bindings = <
    &kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                   &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp BSPC
    &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &bootloader               &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &mt LSHIFT GRAVE  &kp F6 &kp F7 &kp F8 &kp F9 &kp F10        &kp F11 &kp F12 &trans &trans &trans &mt RSHIFT TILDE
+   &mt LSHIFT GRAVE  &kp F6 &kp F7 &kp F8 &kp F9 &kp F10        &mkp MB1 &mkp MB2 &mkp MB3 &trans &trans &mt RSHIFT TILDE
                           	   &trans &trans &kp SPACE          &kp RET &trans &kp RALT
                         >;
                 };
