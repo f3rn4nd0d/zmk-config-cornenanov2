@@ -58,10 +58,10 @@
             //                    |    |     | SPC |               | ENT |     | ALT |
 
             bindings = <
-&kp ESC           &kp N1  &kp N2  &kp N3  &kp N4  &kp N5         &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
-&kp F1            &kp F2  &kp F3  &kp F4  &kp F5  &bootloader    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
-&mt LSHIFT GRAVE  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10        &mkp MB1  &mkp MB2  &mkp MB3  &trans     &trans  &mt RSHIFT TILDE
-                                  &trans  &trans  &kp SPACE      &kp RET   &trans    &kp RALT
+&kp ESC           &kp N1  &kp N2  &kp N3  &kp N4  &kp N5       &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
+&bootloader       &kp F1  &kp F2  &kp F3  &kp F4  &kp F5       &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
+&mt LSHIFT GRAVE  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10      &mkp MB1  &mkp MB2  &mkp MB3  &trans     &trans  &mt RSHIFT TILDE
+                                  &trans  &trans  &kp SPACE    &kp RET   &trans    &kp RALT
             >;
         };
 
