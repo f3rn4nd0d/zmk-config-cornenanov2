@@ -4,89 +4,99 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include "keymap_spanish.h"
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
-#include "keymap_spanish.h"
 
 // Layer aliases test
+
 #define DEF 0
 #define LOW 1
 #define RAI 2
 #define ADJ 3
 
-/{
+/ {
     conditional_layers {
         compatible = "zmk,conditional-layers";
+
         tri_layer {
             if-layers = <LOW RAI>;
             then-layer = <ADJ>;
         };
     };
-    
-        keymap {
-                compatible = "zmk,keymap";
 
-                default_layer {
-                      label = "DEF";
-// ---------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// |(SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  -  | SHFT)|
-//                    | GUI | LWR | SPC |   | ENT | RSE  |BKSP |
-                        bindings = <
-&kp TAB   &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U &kp I &kp O &kp P &kp BSPC
-&kp LCTRL &kp A &kp S &kp D &kp F &kp G         &kp H &kp J &kp K &kp L &kp ES_NTIL &kp SQT
-&mt LSHIFT STAR &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp COMMA &kp DOT &kp ES_MINS &mt RSHIFT LPAR
-                  &kp LGUI &mo 1 &kp SPACE      &kp RET &mo 2 &kp BKSP
-                        >;
-                };
-                
-                lower_layer {
-                    label = "LOW";
-// -----------------------------------------------------------------------------------------
-// |  ESC |  1  |  2  |  3  |  4  |  5  |              |  6  |  7  |  8  |  9  |  0  | BKSP |
-// |  F1  | F2  | F3  | F4  | F5   | &bootloader |     | LFT | DWN |  UP | RGT |     |      |
-// |  <   | F6  | F7  | F8  | F9  | F10 |              | MB1 | MB2 | MB3 |     |     |   >  |
-//                    |    |     | SPC |               | ENT |     | ALT |
-                        bindings = <
-   &kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                   &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp BSPC
-   &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &bootloader               &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &mt LSHIFT GRAVE  &kp F6 &kp F7 &kp F8 &kp F9 &kp F10        &mkp MB1 &mkp MB2 &mkp MB3 &trans &trans &mt RSHIFT TILDE
-                          	   &trans &trans &kp SPACE          &kp RET &trans &kp RALT
-                        >;
-                };
-                
-                raise_layer {
-                     label = "RAI";
-// -----------------------------------------------------------------------------------------
-// |  º   |  !  |  @  |  #  |  $  |  %  |  |  ^  |  &  |  *  |  (  |  )  | BL   |
-// | CTRL |     |     |     |     |     |  |  '  |  =  |  [  |  ]  |  \  |  `   |
-// |   {  |     |     |     |     |     |  |  ¿  |  ?  |  {  |  }  | "|" |   }  |
-//                    | GUI |     | SPC |  | ENT |     | BL |
-                        bindings = <
-   &kp ES_MORD &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT       &kp ES_AMPR &kp ES_SLSH  &kp ES_LPRN &kp ES_RPRN &kp ES_EQL &bootloader
-   &kp LCTRL &trans &trans &trans &trans &trans                  &kp ES_QUOT &kp EQUAL &kp LBKT &kp RBKT &kp BSLH &kp GRAVE
-   &mt LSHIFT ES_LCBR &trans &trans &trans &trans &trans         &kp ES_QUES &kp ES_IQUE &kp LBRC &kp RBRC &kp PIPE &mt LSHIFT ES_RCBR
-                    	     &kp LGUI &trans &kp SPACE           &kp RET &trans  &trans 
-                        >;
-                };
-                
-                adjust_layer {
-                    label = "ADJ";
-// -----------------------------------------------------------------------------------------
-// |      | (2) | (3) |  €  | (5) | (6) |   | ON  | OFF  |    |     |     | Ext Power Toggle  |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   |     |volDN|volUP|     |     |      |
-// | [    |     |     |     |     |     |   |     |     |     |     |     |  ]   |
-//                    |     |     |     |   |     |     |     |
-                        bindings = <
-   &trans &trans &trans &kp ES_EURO &trans &trans                          &ext_power EP_ON &ext_power EP_OFF &trans &trans &trans &ext_power EP_TOG
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans &kp C_VOL_DN &kp C_VOL_UP &trans &trans &trans
-    &mt LSHIFT RA(LBKT) &trans &trans &trans &trans &trans                               &trans &trans &trans &trans &trans  &mt LSHIFT RA(RBKT)
-                              &trans &trans &trans                               &trans &trans &trans 
-                        >;
-                };
-   };
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            label = "DEF";
+
+            // ---------------------------------------------------------------------------------------
+            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+            // |(SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  -  | SHFT)|
+            //                    | GUI | LWR | SPC |   | ENT | RSE  |BKSP |
+
+            bindings = <
+&kp TAB          &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y    &kp U  &kp I          &kp O    &kp P          &kp BSPC
+&kp LCTRL        &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J  &kp K          &kp L    &kp SEMICOLON  &kp SQT
+&mt LSHIFT STAR  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N    &kp M  &kp COMMA      &kp DOT  &kp SLASH      &mt RSHIFT LPAR
+                               &kp LGUI  &mo 1  &kp SPACE    &kp RET  &mo 2  &kp BACKSPACE
+            >;
+        };
+
+        lower_layer {
+            label = "LOW";
+
+            // -----------------------------------------------------------------------------------------
+            // |  ESC |  1  |  2  |  3  |  4  |  5  |              |  6  |  7  |  8  |  9  |  0  | BKSP |
+            // |  F1  | F2  | F3  | F4  | F5   | &bootloader |     | LFT | DWN |  UP | RGT |     |      |
+            // |  <   | F6  | F7  | F8  | F9  | F10 |              | MB1 | MB2 | MB3 |     |     |   >  |
+            //                    |    |     | SPC |               | ENT |     | ALT |
+
+            bindings = <
+&kp ESC           &kp N1  &kp N2  &kp N3  &kp N4  &kp N5         &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
+&kp F1            &kp F2  &kp F3  &kp F4  &kp F5  &bootloader    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
+&mt LSHIFT GRAVE  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10        &mkp MB1  &mkp MB2  &mkp MB3  &trans     &trans  &mt RSHIFT TILDE
+                                  &trans  &trans  &kp SPACE      &kp RET   &trans    &kp RALT
+            >;
+        };
+
+        raise_layer {
+            label = "RAI";
+
+            // -----------------------------------------------------------------------------------------
+            // |  º   |  !  |  @  |  #  |  $  |  %  |  |  ^  |  &  |  *  |  (  |  )  | BL   |
+            // | CTRL |     |     |     |     |     |  |  '  |  =  |  [  |  ]  |  \  |  `   |
+            // |   {  |     |     |     |     |     |  |  ¿  |  ?  |  {  |  }  | "|" |   }  |
+            //                    | GUI |     | SPC |  | ENT |     | BL |
+
+            bindings = <
+&kp GRAVE                  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp ES_AMPR  &kp ES_SLSH  &kp ES_LPRN  &kp ES_RPRN  &kp ES_EQL  &bootloader
+&kp LCTRL                  &trans    &trans  &trans    &trans    &trans       &kp ES_QUOT  &kp EQUAL    &kp LBKT     &kp RBKT     &kp BSLH    &kp GRAVE
+&mt LSHIFT RA(APOSTROPHE)  &trans    &trans  &trans    &trans    &trans       &kp ES_QUES  &kp ES_IQUE  &kp LBRC     &kp RBRC     &kp PIPE    &mt LSHIFT ES_RCBR
+                                             &kp LGUI  &trans    &kp SPACE    &kp RET      &trans       &trans
+            >;
+        };
+
+        adjust_layer {
+            label = "ADJ";
+
+            // -----------------------------------------------------------------------------------------
+            // |      | (2) | (3) |  €  | (5) | (6) |   | ON  | OFF  |    |     |     | Ext Power Toggle  |
+            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   |     |volDN|volUP|     |     |      |
+            // | [    |     |     |     |     |     |   |     |     |     |     |     |  ]   |
+            //                    |     |     |     |   |     |     |     |
+
+            bindings = <
+&trans               &trans        &trans        &kp RA(N5)    &trans        &trans          &ext_power EP_ON  &ext_power EP_OFF  &trans        &trans  &trans  &ext_power EP_TOG
+&bt BT_CLR           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans            &kp C_VOL_DN       &kp C_VOL_UP  &trans  &trans  &trans
+&mt LSHIFT RA(LBKT)  &trans        &trans        &trans        &trans        &trans          &trans            &trans             &trans        &trans  &trans  &mt LSHIFT RA(RBKT)
+                                                 &trans        &trans        &trans          &trans            &trans             &trans
+            >;
+        };
+    };
 };
