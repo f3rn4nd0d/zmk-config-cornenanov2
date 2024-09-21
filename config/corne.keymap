@@ -75,9 +75,9 @@
             //                    | GUI |     | SPC |  | ENT |     | BL |
 
             bindings = <
-&kp GRAVE                  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp LS(ES_6) &kp LS(ES_7) &kp LS(ES_8) &kp LS(ES_9) LS(ES_0)    &bootloader
-&kp LCTRL                  &trans    &trans  &trans    &trans    &trans       &kp ES_QUOT  &kp EQUAL    &kp LBKT     &kp RBKT     &kp BSLH    &kp GRAVE
-&mt LSHIFT RA(APOSTROPHE)  &trans    &trans  &trans    &trans    &trans       &kp LS(MINUS) &kp LS(EQUAL) &kp LBRC     &kp RBRC     &kp PIPE    &mt LSHIFT ES_RCBR
+&kp GRAVE                  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9) LS(N0)    &bootloader
+&kp LCTRL                  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL    &kp LBKT     &kp RBKT     &kp BSLH    &kp GRAVE
+&mt LSHIFT RA(APOSTROPHE)  &trans    &trans  &trans    &trans    &trans       &kp LS(MINUS) &kp LS(EQUAL) &kp LBRC     &kp RBRC     &kp PIPE    &mt LSHIFT RBKT
                                              &kp LGUI  &trans    &kp SPACE    &kp RET      &trans       &trans
             >;
         };
